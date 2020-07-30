@@ -2,7 +2,7 @@ $(document).ready(function(){
      // client id of the project
      var clientId = "194383452071-84dleaqjqpgip40oq5k8r7m70nhr18eq.apps.googleusercontent.com";
      // redirect_uri of the project
-     var redirect_uri = "http://localhost:8080/abc/import.html";
+     var redirect_uri = "http://localhost:8080/connector/import.html";
      // scope of the project
      var scope = "https://www.googleapis.com/auth/drive";
      // the url to which the user is redirected to
