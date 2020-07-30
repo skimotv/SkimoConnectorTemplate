@@ -40,7 +40,8 @@ $(document).ready(function(){
                    console.log(data.items[0].alternateLink);
                    $.each(data.items, function(key, value) {
                     //  $("ul").append("<li>"+value.alternateLink+"</li>");
-                      $("ul").append("<li class=\"list-group-item\">"+value.title+"</li>");
+                      //$("ul").append("<li class=\"list-group-item\">"+value.title+"</li>");
+                    $('ul').append('<li class="list-group-item"> <input type="radio" name="recording">  '+value.title+'</li>');
   });
                },
                error: function (error) {
