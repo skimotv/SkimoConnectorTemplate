@@ -1,7 +1,7 @@
 $(document).ready(function(){
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
-    const redirect_uri = "http://localhost:8080/abc/import.html" // replace with your redirect_uri;
+    const redirect_uri = "http://localhost:8080/connector/import.html" // replace with your redirect_uri;
     const client_secret = "4inA-Vx8QrQoFaXsTE2cViNg"; // replace with your client secret
     const scope = "https://www.googleapis.com/auth/drive";
     var access_token= "";
