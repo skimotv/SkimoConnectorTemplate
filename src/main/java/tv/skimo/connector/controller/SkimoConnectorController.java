@@ -3,6 +3,7 @@ package tv.skimo.connector.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tv.skimo.connector.lib.JGet;
 import tv.skimo.connector.lib.StorageFileNotFoundException;
 import tv.skimo.connector.services.StorageService;
 
@@ -109,6 +112,18 @@ public class SkimoConnectorController {
 
 		String retVal = "myskimo";
 		return(retVal);			
+	}
+
+	@PostMapping("/getAsset")
+	@ResponseBody
+	public ModelAndView getAsset(@RequestParam Map<String,String> reqPar) 
+	{		
+		String url = reqPar.get("recording");
+		
+		log.info("URL is " + url);
+		JGet.go(url, "upload-dir/source.mp4", log);
+
+		return new ModelAndView("redirect:/myskimo");
 	}
 
 	@ExceptionHandler(StorageFileNotFoundException.class)
