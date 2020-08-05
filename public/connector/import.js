@@ -41,8 +41,14 @@ $(document).ready(function(){
                    $.each(data.items, function(key, value) {
                     //  $("ul").append("<li>"+value.alternateLink+"</li>");
                       //$("ul").append("<li class=\"list-group-item\">"+value.title+"</li>");
-                    $('ul').append('<li class="list-group-item"> <input type="radio" name="recording">  '+value.title+'</li>');
-  });
+					const uri = value.alternateLink;
+					var uri_dec = decodeURIComponent(uri);
+					console.log(uri_dec);
+					$('ul').append('<li class="list-group-item"> <input type="radio" name="recording" id="recording" value="' +uri_dec+ '">  '+value.title+' </li>');
+                   
+					
+					
+});
                },
                error: function (error) {
                    console.log(error);
